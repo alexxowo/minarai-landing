@@ -1,38 +1,23 @@
-# Astro Starter Kit: Basics
+# DOJO MINARAI - LANDING PAGE
+Landing page del Dojo Minarai en Punto Fijo, Venezuela.
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Tecnologías
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Astro
+- Tailwind CSS
+- TypeScript
 
-## 🚀 Project Structure
+## Derechos 
 
-Inside of your Astro project, you'll see the following folders and files:
+Todos los derechos reservados para el propietario del Dojo Minarai. Este proyecto ha sido realizado con permiso del dueño de la marca
+**DOJO MINARAI**
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧞 Comandos
 
-## 🧞 Commands
+Todos los comandos se ejecutan desde la raíz del proyecto, desde una terminal:
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
+| Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
@@ -40,7 +25,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

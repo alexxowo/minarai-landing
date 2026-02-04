@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  class?: string;
+  target?: string;
+  hoverColor?: string;
+}
+
+const { href, class: className, target, hoverColor } = Astro.props;
+
+// Determine the background color logic
+// If hoverColor is undefined/null, use 'currentColor' (text color)
+// If it starts with '--', wrap in var() for CSS variables
+// Otherwise treat as a direct color value (Hex, RGBA, etc.)
+const finalColor = hoverColor 
+  ? (hoverColor.startsWith('--') ? `var(${hoverColor})` : hoverColor) 
+  : 'currentColor';
+---
+
+<a href={href} class:list={["animated-link relative inline-block no-underline pb-1", className]} target={target}>
+  <slot />
+  <span class="link-underline absolute bottom-0 left-0 h-[2px] w-0 transition-all duration-300 ease-in-out"></span>
+</a>
+
+<style define:vars={{ underlineColor: finalColor }}>
+  .link-underline {
+    background-color: var(--underlineColor);
+  }
+
+  .animated-link:hover .link-underline {
+    width: 100%;
+  }
+</style>

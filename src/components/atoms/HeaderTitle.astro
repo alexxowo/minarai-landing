@@ -1,0 +1,29 @@
+---
+interface Props {
+  lineColor?: string;
+  class?: string;
+}
+
+const { lineColor = 'golden-rod-500', class: className } = Astro.props;
+
+// Helper to determine color value
+const getLineColor = (color: string) => {
+  if (color.startsWith('#') || color.startsWith('rgb') || color.startsWith('hsl')) {
+    return color;
+  }
+  // Assume it's a theme color token if not a raw color
+  return `var(--color-${color})`;
+};
+
+const finalLineColor = getLineColor(lineColor);
+---
+
+<div class:list={["flex flex-col w-fit", className]}>
+  <h2 class="font-montserrat font-semibold text-3xl md:text-5xl uppercase leading-tight relative z-10">
+    <slot />
+  </h2>
+  <span 
+    class="block h-2 w-full -mt-5" 
+    style={`background-color: ${finalLineColor};`}
+  ></span>
+</div>

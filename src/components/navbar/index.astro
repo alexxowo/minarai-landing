@@ -1,0 +1,23 @@
+---
+import AnimatedLink from "../atoms/AnimatedLink.astro";
+---
+
+<nav class="bg-black w-full h-12 flex-none">
+    <div class="w-full h-full flex items-center justify-between">
+        <div class="w-1/4 h-full flex items-center justify-cente">
+            <span class="text-white font-bebas tracking-widest text-3xl px-8">DOJO MINARAI</span>
+            <!-- <img src="" alt=""> -->
+        </div>
+        <div class="h-full flex items-center justify-center">
+            <ul class="px-8 flex items-center justify-center gap-4">
+                <li><AnimatedLink hoverColor="--color-golden-rod-500" href="#" class="text-white">Quienes somos</AnimatedLink></li>
+                <li><AnimatedLink hoverColor="--color-golden-rod-500" href="#" class="text-white">Beneficios</AnimatedLink></li>
+                <li><AnimatedLink hoverColor="--color-golden-rod-500" href="#" class="text-white">Horarios</AnimatedLink></li>
+                <li><AnimatedLink hoverColor="--color-golden-rod-500" href="#" class="text-white">Equipo</AnimatedLink></li>
+                <li><AnimatedLink hoverColor="--color-golden-rod-500" href="#" class="text-white">Preguntas frecuentes</AnimatedLink></li>
+                <li><AnimatedLink hoverColor="--color-golden-rod-500" href="#" class="text-white">Contacto</AnimatedLink></li>
+                <li><button class="text-white bg-golden-rod-500 px-4 py-1 rounded-md hover:cursor-pointer hover:bg-golden-rod-600 transition-colors duration-300">Iniciar Sesión</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>
