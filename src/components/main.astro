@@ -1,11 +1,39 @@
 ---
 import Navbar from "./navbar/index.astro";
 import Heading from "./Heading.astro";
+import About from "./About.astro";
+import Organization from "./Organization.astro";
+import DojoKun from "./DojoKun.astro";
+import Benefits from "./Benefits.astro";
+import Schedules from "./Schedules.astro";
+import ScheduleTable from "./ScheduleTable.astro";
+import Team from "./Team.astro";
+import Faqs from "./Faqs.astro";
+import JoinClass from "./JoinClass.astro";
+import Contact from "./Contact.astro";
+import Footer from "./Footer.astro";
 ---
 
-<div class="h-auto w-screen">
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
+
+<div class="h-auto w-full">
 	<div class="flex flex-col h-screen">
 		<Navbar />
 		<Heading />
 	</div>
+	<About />
+	<Organization />
+	<DojoKun />
+	<Benefits />
+	<Schedules />
+	<ScheduleTable />
+	<Team />
+	<Faqs />
+	<JoinClass />
+	<Contact />
+	<Footer />
 </div>

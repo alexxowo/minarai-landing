@@ -1,0 +1,205 @@
+---
+import HeaderTitle from "./atoms/HeaderTitle.astro";
+
+const principles = [
+  {
+    kanji: "礼",
+    text: ["Nunca", "olvidaremos el", "código de", "cortesía."],
+    highlight: "cortesía.",
+  },
+  {
+    kanji: "和",
+    text: ["Siempre", "valoraremos el", "camino de la", "armonía"],
+    highlight: "armonía",
+  },
+  {
+    kanji: "忍",
+    text: ["Nunca", "olvidaremos la", "perseverancia", "y el espíritu del", "karate-do."],
+    highlight: "perseverancia",
+  },
+  {
+    kanji: "徳",
+    text: ["Siempre", "mejoraremos", "nuestra", "personalidad."],
+    highlight: "personalidad.",
+  },
+  {
+    kanji: "人",
+    text: ["Siempre", "respetaremos", "a toda la", "humanidad."],
+    highlight: "humanidad.",
+  },
+];
+---
+
+<section class="w-full bg-zinc-900 py-20 flex justify-center items-center text-white relative overflow-hidden">
+  <!-- Decorative background element -->
+  <div class="absolute inset-0 opacity-10 pointer-events-none" 
+       style="background-image: radial-gradient(circle at center, #666 1px, transparent 1px); background-size: 20px 20px;">
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 w-full relative z-10">
+    <div class="flex flex-col items-center mb-16">
+      <HeaderTitle class="items-center text-white" lineColor="golden-rod-500">DOJO KUN</HeaderTitle>
+    </div>
+
+    <div 
+      id="dojo-kun-scroll"
+      class="flex overflow-x-auto gap-12 text-center md:grid md:grid-cols-5 md:gap-12 pb-8 md:pb-0 snap-x snap-mandatory scroll-smooth no-scrollbar"
+    >
+      {
+        principles.map((item) => (
+          <div class="shrink-0 w-[80vw] md:w-auto flex flex-col items-center gap-6 group hover:transform hover:-translate-y-1 transition-transform duration-300 snap-center">
+            <span class="text-8xl md:text-8xl font-japanese font-bold text-white/90 group-hover:text-golden-rod-500 transition-colors duration-300">
+              {item.kanji}
+            </span>
+            <p class="text-lg md:text-base font-light leading-snug">
+              {item.text.map((line) => {
+                if (line.includes(item.highlight) || item.highlight.includes(line)) {
+                     const parts = line.split(item.highlight);
+                     if (parts.length > 1) {
+                        return (
+                             <>{parts[0]}<span class="border-b-4 border-golden-rod-500 font-medium">{item.highlight}</span>{parts[1]}<br/></>
+                        )
+                     }
+                     if (line === item.highlight) {
+                         return <><span class="border-b-4 border-golden-rod-500 font-medium">{line}</span><br/></>
+                     }
+                }
+                return <>{line} <br/></>;
+              })}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Navigation Buttons (Mobile Only) -->
+    <div class="flex justify-center gap-8 mt-4 md:hidden">
+        <button id="prev-btn" class="p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+        </button>
+        <button id="next-btn" class="p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+        </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+    /* Placeholder for a font that looks good for Kanji if not available */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap');
+    
+    .font-japanese {
+        font-family: 'Noto Serif JP', serif;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+</style>
+
+<script>
+  const scrollContainer = document.getElementById('dojo-kun-scroll');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  let autoScrollInterval: number | undefined;
+  let isInteracting = false;
+
+  const getScrollAmount = () => {
+      if (!scrollContainer) return 0;
+      const cardWidth = scrollContainer.firstElementChild?.clientWidth || 0;
+      const gap = 48; // 12 * 4px (gap-12)
+      return cardWidth + gap;
+  };
+
+  const startAutoScroll = () => {
+    if (window.innerWidth >= 768) return; // Don't scroll on desktop (md breakpoint)
+
+    autoScrollInterval = window.setInterval(() => {
+      if (!scrollContainer || isInteracting) return;
+
+      const scrollAmount = getScrollAmount();
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      
+      if (scrollContainer.scrollLeft >= maxScroll - 10) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }, 5000);
+  };
+
+  const stopAutoScroll = () => {
+    if (autoScrollInterval) {
+      clearInterval(autoScrollInterval);
+    }
+  };
+
+  if (scrollContainer) {
+    // Touch events
+    scrollContainer.addEventListener('touchstart', () => {
+      isInteracting = true;
+      stopAutoScroll();
+    });
+
+    scrollContainer.addEventListener('touchend', () => {
+      isInteracting = false;
+      startAutoScroll();
+    });
+
+    // Button Click Handlers
+    prevBtn?.addEventListener('click', () => {
+        isInteracting = true;
+        stopAutoScroll();
+        const scrollAmount = getScrollAmount();
+        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        
+        // Resume auto-scroll after a delay
+        setTimeout(() => {
+            isInteracting = false;
+            startAutoScroll();
+        }, 5000);
+    });
+
+    nextBtn?.addEventListener('click', () => {
+        isInteracting = true;
+        stopAutoScroll();
+        const scrollAmount = getScrollAmount();
+        
+        // Check if we are at the end, if so loop back to start
+        const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        if (scrollContainer.scrollLeft >= maxScroll - 10) {
+             scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+             scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+
+        // Resume auto-scroll after a delay
+        setTimeout(() => {
+            isInteracting = false;
+            startAutoScroll();
+        }, 5000);
+    });
+    
+    // Start initial scroll
+    startAutoScroll();
+
+    // Re-check on resize
+    window.addEventListener('resize', () => {
+      stopAutoScroll();
+      startAutoScroll();
+    });
+  }
+</script>

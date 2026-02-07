@@ -1,0 +1,71 @@
+---
+import HeaderTitle from "./atoms/HeaderTitle.astro";
+import ScheduleCard from "./cards/ScheduleCard.astro";
+
+const schedules = [
+  {
+    title: "Grupo Infantil",
+    subtitle: "Menores de 8 años",
+    level: "Principiantes e intermedios",
+    description: "Los más pequeños dan sus primeros pasos en el Karate-Do con atención, respeto y alegría.",
+    image: "https://placehold.co/400x300",
+  },
+  {
+    title: "Grupo Pre - Juvenil",
+    subtitle: "De 9 años a 13 años",
+    level: "Principiantes e intermedios",
+    description: "En nuestro grupo Pre-Juvenil, canalizamos el potencial de los jóvenes a través de la técnica y el respeto.",
+    image: "https://placehold.co/400x300",
+  },
+  {
+    title: "Grupo Juvenil / Adulto",
+    subtitle: "De 14 años en adelante",
+    level: "Principiantes e intermedios",
+    description: "Entrenamos para alcanzar la máxima eficiencia física y una mentalidad capaz de dominar cualquier situación bajo presión.",
+    image: "https://placehold.co/400x300",
+  },
+  {
+    title: "Grupo Avanzado",
+    subtitle: "Todas las edades",
+    level: "Avanzados",
+    description: "El entrenamiento trasciende lo físico. Aquí, cada detalle cuenta y cada movimiento se pule hasta la perfección.",
+    image: "https://placehold.co/400x300",
+  },
+  {
+    title: "Clase Personalizada",
+    subtitle: "Todas las edades",
+    level: "Principiantes, Intermedios y Avanzados",
+    description: "Maximiza tu aprendizaje con la atención total; optimizando cada movimiento y acelerando tus resultados en defensa personal y acondicionamiento.",
+    image: "https://placehold.co/400x300",
+  },
+  {
+    title: "Clase de Desarrollo Adaptativo",
+    subtitle: "Todas las edades",
+    level: "Principiantes, Intermedios y Avanzados",
+    description: "Nuestras clases para personas con neurodivergencia están diseñadas para adaptar la disciplina a las necesidades individuales de cada alumno.",
+    image: "https://placehold.co/400x300",
+  },
+];
+---
+
+<section id="schedules" class="max-w-7xl mx-auto px-12 py-20 bg-white">
+  <div class="mb-16">
+    <HeaderTitle>
+      NUESTROS <br> HORARIOS
+    </HeaderTitle>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+    {
+      schedules.map((schedule) => (
+        <ScheduleCard
+          title={schedule.title}
+          subtitle={schedule.subtitle}
+          level={schedule.level}
+          description={schedule.description}
+          image={schedule.image}
+        />
+      ))
+    }
+  </div>
+</section>

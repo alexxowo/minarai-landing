@@ -1,0 +1,46 @@
+---
+import HeaderTitle from "./atoms/HeaderTitle.astro";
+import Accordion from "./atoms/Accordion.astro";
+
+const faqs = [
+  {
+    question: "¿A PARTIR DE QUÉ EDAD PUEDEN INSCRIBIRSE LOS NIÑOS?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  {
+    question: "¿NECESITO TENER UNA CONDICIÓN FÍSICA PREVIA PARA EMPEZAR?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  },
+  {
+    question: "¿QUÉ ROPA DEBO LLEVAR SI NO TENGO EL UNIFORME (KARATEGI)?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  {
+    question: "¿LOS ADULTOS TAMBIÉN PUEDEN ENTRENAR O ES SOLO PARA NIÑOS?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+  },
+  {
+    question: "¿TENGO QUE TENER EXPERIENCIA PREVIA PARA INSCRIBIRME?",
+    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+  }
+];
+---
+
+<section id="faqs" class="max-w-7xl mx-auto px-4 md:px-12 py-20 bg-white">
+  <div class="mb-12">
+    <HeaderTitle class="text-left" lineColor="golden-rod-500">
+      FAQS <br> [PREGUNTAS FRECUENTES]
+    </HeaderTitle>
+  </div>
+
+  <div class="flex flex-col gap-2 max-w-4xl">
+    {
+      faqs.map((faq) => (
+        <Accordion 
+          title={faq.question} 
+          description={faq.answer} 
+        />
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+---
+
+<section class="w-full h-[500px] mt-20 mb-20 relative">
+  <!-- Background Container -->
+  <div class="absolute bottom-0 w-full h-[85%] bg-golden-rod-500 flex items-center justify-center">
+      <div class="max-w-7xl mx-auto px-4 md:px-12 w-full flex h-full relative">
+          
+          <!-- Image Section (Left) -->
+          <div class="hidden md:flex flex-1 relative h-full items-end justify-center md:justify-start">
+             <!-- Image protruding from top. 
+                  Container is h-[85%], component is 500px. 
+                  We want the image to start from bottom of container and go up.
+                  The container accounts for the yellow bg. 
+                  We want the image to go higher than the yellow bg.
+              -->
+              <img 
+                src="https://placehold.co/400x600/png" 
+                alt="Karate Student" 
+                class="absolute bottom-0 left-0 w-auto h-[115%] object-cover object-top z-10"
+              />
+          </div>
+
+          <!-- Content Section (Right) -->
+          <div class="flex-1 flex flex-col justify-center items-end text-right md:pl-8 py-8 md:py-0 relative z-20">
+              <h2 class="font-bebas text-5xl md:text-7xl uppercase text-black leading-none mb-6 relative">
+                  <span class="relative z-10">¡ÚNETE A LA CLASE HOY!</span>
+                   <!-- White background block effect behind text if needed, as seen in some designs, 
+                        but image shows plain text on yellow. -->
+              </h2>
+              
+              <div class="max-w-xl text-black font-raleway font-light text-lg md:text-xl leading-relaxed mb-8">
+                  <p>
+                      Más que un entrenamiento: es tu evolución personal. Domina técnicas de defensa, mejora tu salud y domina tu voluntad. No esperes a estar en forma para empezar, empieza para estar en forma.
+                  </p>
+              </div>
+
+              <a 
+                  class="bg-white hover:bg-gray-100 text-black font-bebas text-xl md:text-2xl tracking-wide py-3 px-8 rounded shadow-md transition-all duration-300 uppercase transform hover:-translate-y-1 hover:shadow-xl hover:cursor-pointer"
+              >
+                  RESERVA TU CLASE CLASE GRATUITA ¡AHORA!
+              </a>
+          </div>
+      </div>
+  </div>
+</section>

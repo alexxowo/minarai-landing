@@ -1,0 +1,148 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  animationDuration?: number;
+}
+
+const { title, description, animationDuration = 500 } = Astro.props;
+---
+
+<div class="w-full mb-4">
+  <details 
+    class="group bg-white rounded-lg shadow-sm overflow-hidden open:shadow-md"
+    data-duration={animationDuration}
+  >
+    <summary class="flex items-center gap-4 cursor-pointer p-6 list-none select-none relative z-10 bg-white">
+      <!-- Icon: - when open, + when closed -->
+      <div class="text-2xl font-bold w-6 h-6 flex items-center justify-center transition-transform duration-300">
+        <span class="group-open:hidden">+</span>
+        <span class="hidden group-open:block">-</span>
+      </div>
+      
+      <h3 class="font-bebas text-xl md:text-2xl tracking-wide uppercase flex-1">
+        {title}
+      </h3>
+    </summary>
+    
+    <div class="faq-content px-6 pb-6 pt-0 ml-10 text-gray-600 font-light leading-relaxed text-justify">
+      <p>{description}</p>
+    </div>
+  </details>
+</div>
+
+<style>
+  /* Remove default triangle */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
+
+<script>
+  class Accordion {
+    el: HTMLDetailsElement;
+    summary: HTMLElement;
+    content: HTMLElement;
+    animation: Animation | null;
+    isClosing: boolean;
+    isExpanding: boolean;
+    duration: number;
+
+    constructor(el: HTMLDetailsElement) {
+      this.el = el;
+      this.summary = el.querySelector('summary') as HTMLElement;
+      this.content = el.querySelector('.faq-content') as HTMLElement;
+      this.animation = null;
+      this.isClosing = false;
+      this.isExpanding = false;
+      this.duration = parseInt(el.dataset.duration || '500');
+
+      this.summary.addEventListener('click', (e) => this.onClick(e));
+    }
+
+    onClick(e: Event) {
+      e.preventDefault();
+      this.el.style.overflow = 'hidden';
+
+      if (this.isClosing || !this.el.open) {
+        this.open();
+      } else if (this.isExpanding || this.el.open) {
+        this.close();
+      }
+    }
+
+    open() {
+      this.el.style.height = `${this.el.offsetHeight}px`;
+      this.el.open = true;
+      window.requestAnimationFrame(() => this.expand());
+    }
+
+    expand() {
+      this.isExpanding = true;
+      const startHeight = `${this.el.offsetHeight}px`;
+      const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
+
+      if (this.animation) {
+        this.animation.cancel();
+      }
+
+      this.animation = this.el.animate({
+        height: [startHeight, endHeight]
+      }, {
+        duration: this.duration,
+        easing: 'ease-out'
+      });
+
+      this.animation.onfinish = () => this.onAnimationFinish(true);
+      this.animation.oncancel = () => this.isExpanding = false;
+    }
+
+    close() {
+      this.isClosing = true;
+      const startHeight = `${this.el.offsetHeight}px`;
+      const endHeight = `${this.summary.offsetHeight}px`;
+
+      if (this.animation) {
+        this.animation.cancel();
+      }
+
+      this.animation = this.el.animate({
+        height: [startHeight, endHeight]
+      }, {
+        duration: this.duration,
+        easing: 'ease-out'
+      });
+
+      this.animation.onfinish = () => this.onAnimationFinish(false);
+      this.animation.oncancel = () => this.isClosing = false;
+    }
+
+    onAnimationFinish(open: boolean) {
+      this.el.open = open;
+      this.animation = null;
+      this.isClosing = false;
+      this.isExpanding = false;
+      this.el.style.height = '';
+      this.el.style.overflow = '';
+    }
+  }
+
+  // Initialize accordions
+  const initAccordions = () => {
+    document.querySelectorAll('details').forEach((el) => {
+      // Avoid re-attaching if already attached (simple check)
+      if (!(el as any)._accordionAttached) {
+        new Accordion(el as HTMLDetailsElement);
+        (el as any)._accordionAttached = true;
+      }
+    });
+  };
+
+  initAccordions();
+  
+  // Re-run on view transitions if needed (Astro default usually handles scripts once unless view transitions are enabled)
+  document.addEventListener('astro:page-load', initAccordions);
+</script>

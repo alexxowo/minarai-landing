@@ -1,19 +1,63 @@
 ---
 import HeaderTitle from "./atoms/HeaderTitle.astro";
+
+const heroImages = [
+    "https://placehold.co/600x800", 
+    // Add more images here for future rotation
+];
 ---
 
-<section class="flex-1 w-screen bg-white flex flex-row items-center justify-between px-12">
-    <!-- <div class="header-image w-full h-full"></div> -->
-    <div class="flex flex-col items-center justify-center">
-        <span class="text-black font-light mx-auto uppercase">Academia de karate-do</span>
-        <div>
-             <h2 class="text-black text-8xl font-bebas tracking-wider font-bold">
-                DOJO MINARAI
-            </h2>
-            <span class="text-black font-raleway font-light mx-auto">El aprendizaje <br> mediante la observación</span>
-        </div>
+<section class="relative w-full min-h-[calc(100vh-80px)] bg-white overflow-hidden flex flex-col md:flex-row items-center justify-between px-6 md:px-12 pt-12 md:pt-0">
+    
+    <!-- Left Content -->
+    <div class="flex-1 flex flex-col items-center md:items-start justify-center z-10 w-full md:w-auto pl-0 md:pl-20 text-center md:text-left mt-8 md:mt-0">
+        <span class="text-gray-500 font-light uppercase tracking-[0.2em] text-xs md:text-base mb-1 md:mb-[-15px] md:ml-1">
+            Academia de karate-do
+        </span>
+        
+        <h1 class="text-black text-5xl md:text-9xl font-bebas tracking-wider font-bold leading-none mb-4 md:mb-2">
+            DOJO MINARAI
+        </h1>
+        
+        <span class="text-black font-raleway font-light text-lg md:text-3xl italic mb-8 md:mb-12">
+            El aprendizaje <br class="block md:hidden"> mediante la observación
+        </span>
+
+        <button class="bg-golden-rod-500 text-black font-bebas tracking-wide text-lg md:text-xl px-8 py-3 rounded-md uppercase hover:bg-golden-rod-600 transition-colors shadow-lg cursor-default">
+            Inicia Sesión
+        </button>
     </div>
-    <div>
-        <img src="https://placehold.co/600x400" alt="Promocion" />
+
+    <!-- Right Image Placeholder -->
+    <div class="flex-1 h-full w-full flex items-end justify-center md:justify-end relative mt-8 md:mt-0">
+        <!-- Gradient overlay at the bottom for smooth blending -->
+        <div class="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-white via-white/60 to-transparent z-20 pointer-events-none md:hidden"></div>
+        
+        <img 
+            id="hero-image"
+            src={heroImages[0]} 
+            alt="Karateka Minarai" 
+            class="h-[50vh] md:h-[90%] w-auto object-contain object-bottom transition-opacity duration-1000"
+        />
     </div>
 </section>
+
+<script define:vars={{ heroImages }}>
+    // Image rotation logic placeholder
+    // Currently set to just keep the first image, but ready for rotation.
+    /*
+    let currentIndex = 0;
+    const imgElement = document.getElementById('hero-image');
+    
+    if (imgElement && heroImages.length > 1) {
+        setInterval(() => {
+            imgElement.style.opacity = '0';
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % heroImages.length;
+                imgElement.src = heroImages[currentIndex];
+                imgElement.style.opacity = '1';
+            }, 1000); // Wait for fade out
+        }, 5000); // Change every 5 seconds
+    }
+    */
+</script>
