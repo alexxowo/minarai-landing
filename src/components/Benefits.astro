@@ -1,5 +1,9 @@
 ---
 import HeaderTitle from "./atoms/HeaderTitle.astro";
+
+import muscleIcon from '../assets/images/icono_fuerza.svg'; 
+import brainIcon from '../assets/images/icono_cerebro.svg'; 
+import heartIcon from '../assets/images/icono_corazon.svg'; 
 ---
 
 <section id="benefits" class="min-h-screen w-full bg-white flex flex-col justify-center items-center py-20 px-8">
@@ -16,26 +20,7 @@ import HeaderTitle from "./atoms/HeaderTitle.astro";
     <!-- Column 1: Fortaleza Física -->
     <div class="flex flex-col items-center text-center gap-6">
       <div class="h-32 w-32 flex items-center justify-center">
-        <!-- Muscle Icon SVG -->
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-24 h-24">
-             <path d="M12.5 22.5c0-1.5.5-2.5 2-3s3.5-1 4-2.5c.5-1.5 0-3-1.5-3.5s-2.5 0-3.5 1.5c-1 1.5-2 2-3.5 1.5-1.5-.5-2-2-1.5-3.5.5-1 1.5-1.5 2.5-1s2.5 1.5 3.5.5c1-1 .5-2.5-1-3.5-1.5-1-3-1-4.5.5-1.5 1.5-2 3-1.5 4.5.5 1.5 2 2.5 3.5 2s2-2 1.5-3.5c-.5-1-1.5-1.5-2.5-1-.5 0-1 .5-1 1" opacity="0"/> 
-             <!-- Conceptual strong arm -->
-             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-             <path d="M12 21a6 6 0 0 0 6-6V7a6 6 0 0 0-6-6 6 6 0 0 0-6 6v7a6 6 0 0 0 6 6" class="hidden"/>
-             <path d="M6 9h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z" class="hidden"/>
-             <!-- Simplified flexed arm representation -->
-             <path d="M19 8l-2.5-2.5L14 8v3l-3 4-3-1-2 2h3l3 2 4-2V8z" fill="none" stroke="black" stroke-width="1"/>
-             <path d="M8 8.5C8 8.5 9 6 13 6C17 6 18 8.5 18 8.5" />
-             <path d="M8 8.5V17.5C8 17.5 9 19.5 13 19.5C17 19.5 18 17.5 18 17.5V8.5" />
-             <path d="M13 6V4M7 8l-1 1M18 8h2" />
-        </svg>
-        <svg  viewBox="0 0 100 100" class="w-24 h-24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20,60 Q20,40 35,35 T60,35 T80,50" /> 
-            <path d="M35,35 L25,25" />
-            <path d="M80,50 L85,75 Q85,85 75,85 T60,75 L60,50" />
-            <path d="M20,60 L20,80 Q20,90 30,90 T40,80 L40,65" />
-        </svg>
-
+        <img src={muscleIcon.src} alt="Muscle Icon" class="w-24 h-24"/>
       </div>
       
       <div class="flex flex-col items-center">
@@ -62,15 +47,7 @@ import HeaderTitle from "./atoms/HeaderTitle.astro";
     <!-- Column 2: Equilibrio Mental -->
     <div class="flex flex-col items-center text-center gap-6">
        <div class="h-32 w-32 flex items-center justify-center">
-         <!-- Brain/Mind Icon -->
-         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-24 h-24">
-            <path d="M12 18h.01" />
-            <path d="M10 16.5c.5.5 1.5 1 2.5 1s2.5-.5 3-1.5c.5-1.5-.5-2.5-2-3" />
-            <path d="M9.5 7.5c-1.5 1.5-1.5 3.5 0 5s3.5 1.5 5 0c1.5-1.5 1.5-3.5 0-5s-3.5-1.5-5 0" />
-            <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9z" />
-            <path d="M12 3v3" />
-            <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
-         </svg> 
+         <img src={brainIcon.src} alt="Brain Icon" class="w-24 h-24"/>
        </div>
        
        <div class="flex flex-col items-center">
@@ -97,11 +74,7 @@ import HeaderTitle from "./atoms/HeaderTitle.astro";
     <!-- Column 3: Formación de Carácter -->
     <div class="flex flex-col items-center text-center gap-6">
         <div class="h-32 w-32 flex items-center justify-center relative">
-          <!-- Heart with Kanji -->
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-24 h-24">
-             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-           </svg>
-           <span class="absolute text-xl font-bold top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/4">礼</span>
+          <img src={heartIcon.src} alt="Heart Icon" class="w-24 h-24"/>
         </div>
         
         <div class="flex flex-col items-center">

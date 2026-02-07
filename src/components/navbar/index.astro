@@ -1,14 +1,15 @@
 ---
 import AnimatedLink from "../atoms/AnimatedLink.astro";
+import logoPos from '../../assets/images/logotipo_color.svg';
+import logoKanjiPos from '../../assets/images/logo_kanji_pos.svg';
 ---
 
 <nav class="bg-black w-full h-16 md:h-20 flex-none fixed top-0 z-50 transition-all duration-300">
     <div class="w-full h-full flex items-center justify-between px-4 md:px-8 max-w-7xl mx-auto">
         <!-- Logo -->
-        <div class="flex items-center">
-            <span class="text-white font-bebas tracking-widest text-2xl md:text-3xl cursor-pointer">
-                <a href="#">DOJO MINARAI</a>
-            </span>
+        <div class="flex items-center gap-2 hover:cursor-pointer hover:opacity-80 transition-all duration-300" onclick="window.location.href = '/#'">
+            <img src={logoPos.src} alt="Logo Minarai" class="w-8 h-8 md:w-12 md:h-12">
+            <img src={logoKanjiPos.src} alt="Minarai Kanji" class="w-16 h-auto md:w-20">
         </div>
 
         <!-- Desktop Menu -->
