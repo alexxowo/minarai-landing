@@ -122,3 +122,9 @@ body{
   --color-formal-garden-900: #112013;
   --color-formal-garden-950: #0b140c;
 }
+
+/* Background color for selection */
+::selection {
+  background-color: var(--color-golden-rod-500);
+  color: #000;
+}
