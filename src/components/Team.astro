@@ -8,13 +8,10 @@ const instructors = [
 		Lead: "3er Dan JKR - Instructor Principal",
 		Record: [
 			"Instructor Principal del Dojo",
-			"Cinturón Negro 3er Dan Japan Karatedo Ryobu-Kai",
-			"Coach Federado Nacional",
-			"Árbitro Panamericano",
+			"Cinturón Negro 3er Dan JKRV",
 			"Más de 20 años de experiencia en la enseñanza",
-			"Especialista en Kata y Kumite"
 		],
-		image: "https://placehold.co/600x600"
+		image: "https://placehold.co/400x400"
 	}
 ];
 
@@ -24,9 +21,7 @@ const shidoins = [
 		Lead: "1er Dan JKR",
 		Record: [
 			"Shidoin (Instructor Asistente)",
-			"Cinturón Negro 1er Dan JKR",
-			"Competidor Nacional",
-			"Estudiante de Educación Física"
+			"Cinturón Negro 1er Dan JKRV",
 		],
 		image: "https://placehold.co/400x400"
 	},
@@ -35,9 +30,7 @@ const shidoins = [
 		Lead: "1er Dan JKR",
 		Record: [
 			"Shidoin (Instructor Asistente)",
-			"Cinturón Negro 1er Dan JKR",
-			"Especialista en Karate Infantil",
-			"Certificación en Primeros Auxilios"
+			"Cinturón Negro 1er Dan JKRV",
 		],
 		image: "https://placehold.co/400x400"
 	}
@@ -47,19 +40,19 @@ const assistants = [
 	{
 		Title: "Carlos Cordova",
 		Lead: "8vo Kyu",
-		Record: ["Asistente nivel inicial", "Miembro activo del Dojo"],
+		Record: ["Miembro activo del Dojo"],
 		image: "https://placehold.co/300x300"
 	},
 	{
 		Title: "Leopoldo Garcia",
 		Lead: "8vo Kyu",
-		Record: ["Asistente nivel inicial", "Miembro activo del Dojo"],
+		Record: ["Miembro activo del Dojo"],
 		image: "https://placehold.co/300x300"
 	},
 	{
 		Title: "Juan Morillo",
 		Lead: "8vo Kyu",
-		Record: ["Asistente nivel inicial", "Miembro activo del Dojo"],
+		Record: ["Miembro activo del Dojo"],
 		image: "https://placehold.co/300x300"
 	}
 ];
@@ -74,46 +67,42 @@ const assistants = [
     </div>
 
     <div class="container mx-auto px-4 flex flex-col gap-24">
-        
         <!-- Sensei Section -->
         <div class="flex flex-col items-center">
             <h3 class="text-3xl font-bebas tracking-widest font-bold mb-12 text-black-beauty-700 relative inline-block">
                 Instructor Principal
                 <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-barbados-cherry-500 rounded-full"></div>
             </h3>
-            <div class="max-w-md w-full">
+            <div class="max-w-[350px] w-full">
                 {instructors.map((sensei) => (
                     <TeamCard {...sensei} />
                 ))}
             </div>
         </div>
-
         <!-- Shidoins Section -->
         <div>
             <h3 class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2">
                 Nuestros Shidoins
                 <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-golden-rod-500 rounded-full"></div>
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[700px] mx-auto">
                 {shidoins.map((shidoin) => (
                     <TeamCard {...shidoin} />
                 ))}
             </div>
         </div>
-
         <!-- Assistants Section -->
         <div>
             <h3 class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2">
                 Asistentes
                 <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-gray-300 rounded-full"></div>
             </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[912px] mx-auto">
                 {assistants.map((assistant) => (
                     <TeamCard {...assistant} />
                 ))}
             </div>
         </div>
-
     </div>
 </section>
 
