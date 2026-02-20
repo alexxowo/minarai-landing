@@ -1,71 +1,119 @@
 ---
 import HeaderTitle from "./atoms/HeaderTitle.astro";
+import TeamCard from "./cards/TeamCard.astro";
+
+const instructors = [
+	{
+		Title: "Sensei Aristides Sánchez",
+		Lead: "3er Dan JKR - Instructor Principal",
+		Record: [
+			"Instructor Principal del Dojo",
+			"Cinturón Negro 3er Dan Japan Karatedo Ryobu-Kai",
+			"Coach Federado Nacional",
+			"Árbitro Panamericano",
+			"Más de 20 años de experiencia en la enseñanza",
+			"Especialista en Kata y Kumite"
+		],
+		image: "https://placehold.co/600x600"
+	}
+];
+
+const shidoins = [
+	{
+		Title: "Shidoin Alexandre Marquez",
+		Lead: "1er Dan JKR",
+		Record: [
+			"Shidoin (Instructor Asistente)",
+			"Cinturón Negro 1er Dan JKR",
+			"Competidor Nacional",
+			"Estudiante de Educación Física"
+		],
+		image: "https://placehold.co/400x400"
+	},
+	{
+		Title: "Shidoin Eva Chirinos",
+		Lead: "1er Dan JKR",
+		Record: [
+			"Shidoin (Instructor Asistente)",
+			"Cinturón Negro 1er Dan JKR",
+			"Especialista en Karate Infantil",
+			"Certificación en Primeros Auxilios"
+		],
+		image: "https://placehold.co/400x400"
+	}
+];
+
+const assistants = [
+	{
+		Title: "Carlos Cordova",
+		Lead: "8vo Kyu",
+		Record: ["Asistente nivel inicial", "Miembro activo del Dojo"],
+		image: "https://placehold.co/300x300"
+	},
+	{
+		Title: "Leopoldo Garcia",
+		Lead: "8vo Kyu",
+		Record: ["Asistente nivel inicial", "Miembro activo del Dojo"],
+		image: "https://placehold.co/300x300"
+	},
+	{
+		Title: "Juan Morillo",
+		Lead: "8vo Kyu",
+		Record: ["Asistente nivel inicial", "Miembro activo del Dojo"],
+		image: "https://placehold.co/300x300"
+	}
+];
 ---
 
-    <div class="mt-16 flex flex-col gap-24">
+<section class="py-24 bg-white" id="team">
+    <div class="container mx-auto px-4 text-center mb-16">
+        <HeaderTitle>Nuestro Equipo</HeaderTitle>
+        <p class="text-black-beauty-600 max-w-2xl mx-auto mt-4">
+            Contamos con instructores certificados y altamente capacitados dedicados a la enseñanza del Karate-do tradicional.
+        </p>
+    </div>
+
+    <div class="container mx-auto px-4 flex flex-col gap-24">
         
         <!-- Sensei Section -->
-        <div class="flex flex-col items-center text-center">
-            <h3 class="text-3xl font-bebas tracking-wide font-bold mb-8 text-black-beauty-700">Instructor Principal</h3>
-            <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg max-w-sm hover:shadow-xl transition-shadow duration-300 border-b-4 border-golden-rod-500">
-                <img src="https://placehold.co/300x300" alt="Sensei Aristides Sánchez" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h4 class="text-xl font-bold mb-2 text-barbados-cherry-600">Sensei Aristides Sánchez</h4>
-                    <p class="text-black-beauty-600 font-semibold">3er Dan JKR</p>
-                    <p class="text-black-beauty-500 mt-2">Instructor Principal del Dojo</p>
-                </div>
+        <div class="flex flex-col items-center">
+            <h3 class="text-3xl font-bebas tracking-widest font-bold mb-12 text-black-beauty-700 relative inline-block">
+                Instructor Principal
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-barbados-cherry-500 rounded-full"></div>
+            </h3>
+            <div class="max-w-md w-full">
+                {instructors.map((sensei) => (
+                    <TeamCard {...sensei} />
+                ))}
             </div>
         </div>
 
         <!-- Shidoins Section -->
-        <div class="px-4">
-            <h3 class="text-2xl font-bebas tracking-wide font-bold mb-8 text-center text-black-beauty-700">Nuestros Shidoins</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                {/* Shidoin Cards */}
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border-b-2 border-golden-rod-400">
-                    <img src="https://placehold.co/300x300" alt="Shidoin Alexandre Marquez" class="w-full h-48 object-cover">
-                    <div class="p-6 text-center">
-                        <h4 class="text-xl font-bold mb-1 text-black-beauty-800">Shidoin Alexandre Marquez</h4>
-                        <p class="text-golden-rod-600 font-semibold">1er Dan JKR</p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border-b-2 border-golden-rod-400">
-                    <img src="https://placehold.co/300x300" alt="Shidoin Eva Chirinos" class="w-full h-48 object-cover">
-                    <div class="p-6 text-center">
-                        <h4 class="text-xl font-bold mb-1 text-black-beauty-800">Shidoin Eva Chirinos</h4>
-                        <p class="text-golden-rod-600 font-semibold">1er Dan JKR</p>
-                    </div>
-                </div>
+        <div>
+            <h3 class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2">
+                Nuestros Shidoins
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-golden-rod-500 rounded-full"></div>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                {shidoins.map((shidoin) => (
+                    <TeamCard {...shidoin} />
+                ))}
             </div>
         </div>
 
-        <!-- Assistants/Students Section -->
-        <div class="px-4">
-            <h3 class="text-2xl font-bebas tracking-wide font-bold mb-8 text-center text-black-beauty-700">Asistentes</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border-b border-gray-200">
-                    <img src="https://placehold.co/300x300" alt="Carlos Cordova" class="w-full h-40 object-cover">
-                    <div class="p-4 text-center">
-                        <h5 class="text-lg font-bold mb-1 text-black-beauty-700">Carlos Cordova</h5>
-                        <p class="text-black-beauty-500 text-sm">8no Kyu</p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border-b border-gray-200">
-                    <img src="https://placehold.co/300x300" alt="Leopoldo Garcia" class="w-full h-40 object-cover">
-                    <div class="p-4 text-center">
-                        <h5 class="text-lg font-bold mb-1 text-black-beauty-700">Leopoldo Garcia</h5>
-                        <p class="text-black-beauty-500 text-sm">8no Kyu</p>
-                    </div>
-                </div>
-                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border-b border-gray-200">
-                    <img src="https://placehold.co/300x300" alt="Juan Morillo" class="w-full h-40 object-cover">
-                    <div class="p-4 text-center">
-                        <h5 class="text-lg font-bold mb-1 text-black-beauty-700">Juan Morillo</h5>
-                        <p class="text-black-beauty-500 text-sm">8no Kyu</p>
-                    </div>
-                </div>
+        <!-- Assistants Section -->
+        <div>
+            <h3 class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2">
+                Asistentes
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-gray-300 rounded-full"></div>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                {assistants.map((assistant) => (
+                    <TeamCard {...assistant} />
+                ))}
             </div>
         </div>
 
     </div>
 </section>
+
