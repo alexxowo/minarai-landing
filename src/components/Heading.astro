@@ -1,8 +1,9 @@
 ---
 import HeaderTitle from "./atoms/HeaderTitle.astro";
+import hero_image from "../assets/images/Victoria_negro_blanco.png"
 
 const heroImages = [
-    "https://placehold.co/600x800", 
+    hero_image.src, 
     // Add more images here for future rotation
 ];
 ---
@@ -10,7 +11,7 @@ const heroImages = [
 <section class="relative w-full min-h-[calc(100vh-80px)] bg-white overflow-hidden flex flex-col md:flex-row items-center justify-between px-6 md:px-12 pt-12 md:pt-0">
     
     <!-- Left Content -->
-    <div class="flex-1 flex flex-col items-center md:items-start justify-center z-10 w-full md:w-auto pl-0 md:pl-20 text-center md:text-left mt-8 md:mt-0">
+    <div class="flex-1 flex flex-col items-center md:items-start justify-center z-20 w-full md:w-auto pl-0 md:pl-20 text-center md:text-left mt-8 md:mt-0">
         <span class="text-gray-500 font-light uppercase tracking-[0.2em] text-xs md:text-base mb-1 md:mb-[-10px] md:ml-1">
             Academia de karate-do
         </span>
@@ -23,16 +24,13 @@ const heroImages = [
             El aprendizaje <br class="block md:hidden"> mediante la observación
         </span>
 
-        <!-- <button class="bg-golden-rod-500 text-black font-bebas tracking-wide text-lg md:text-xl px-8 py-3 rounded-md uppercase hover:bg-golden-rod-600 transition-colors shadow-lg cursor-default">
+        <button class="bg-golden-rod-500 text-black font-bebas tracking-wide text-lg md:text-xl px-8 py-3 rounded-md uppercase hover:bg-golden-rod-600 transition-colors shadow-lg cursor-default">
             Inicia Sesión
-        </button> -->
+        </button>
     </div>
 
     <!-- Right Image Placeholder -->
     <div class="flex-1 h-full w-full flex items-end justify-center md:justify-end relative mt-8 md:mt-0">
-        <!-- Gradient overlay at the bottom for smooth blending -->
-        <div class="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-white via-white/60 to-transparent z-20 pointer-events-none md:hidden"></div>
-        
         <img 
             id="hero-image"
             src={heroImages[0]} 
@@ -40,6 +38,9 @@ const heroImages = [
             class="h-[50vh] md:h-[90%] w-auto object-contain object-bottom transition-opacity duration-1000"
         />
     </div>
+
+    <!-- Black gradient overlay for the entire section -->
+    <div class="absolute bottom-0 left-0 w-full h-1/3 bg-linear-to-t from-black from-0% to-transparent z-10 pointer-events-none"></div>
 </section>
 
 <script define:vars={{ heroImages }}>
