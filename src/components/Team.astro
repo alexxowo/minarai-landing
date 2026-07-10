@@ -3,115 +3,129 @@ import HeaderTitle from "./atoms/HeaderTitle.astro";
 import TeamCard from "./cards/TeamCard.astro";
 
 // Imagenes
-import aristides from "../assets/images/team/PERFIL ARISTIDES.png"
-import carlos from "../assets/images/team/PERFIL CARLOS.png"
-import alexandre from "../assets/images/team/PERFIL ALE.png"
-import eva from "../assets/images/team/PERFIL EVA.png"
-import leopoldo from "../assets/images/team/PERFIL LEO.png"
-import juan from "../assets/images/team/PERFIL JUAN.png"
-
+import aristides from "../assets/images/team/PERFIL ARISTIDES.png";
+import carlos from "../assets/images/team/PERFIL CARLOS.png";
+import alexandre from "../assets/images/team/PERFIL ALE.png";
+import eva from "../assets/images/team/PERFIL EVA.png";
+import leopoldo from "../assets/images/team/PERFIL LEO.png";
+import juan from "../assets/images/team/PERFIL JUAN.png";
 
 const instructors = [
 	{
-		Title: "Sensei Aristides Sánchez",
-		Lead: "3er Dan JKR - Instructor Principal",
+		Title: "Aristides Sánchez",
+		Lead: "3er Dan JRKV - Instructor Principal",
 		Record: [
-			"Instructor Principal del Dojo",
-			"Cinturón Negro 3er Dan JKRV",
-			"Más de 15 años de experiencia en la enseñanza",
+			"Ing. Naval",
+			"Desde 1996 practicando",
+			"Instructor principal",
+			"3er Dan JRKV",
 		],
-		image: aristides
-	}
+		image: aristides,
+	},
 ];
 
 const shidoins = [
 	{
-		Title: "Shidoin Alexandre Marquez",
-		Lead: "1er Dan JKR",
+		Title: "Alexandre Marquez",
+		Lead: "1er Dan JRKV - Asistente Instructor",
 		Record: [
-			"Shidoin (Instructor Asistente)",
-			"Cinturón Negro 1er Dan JKRV",
+			"Ing. Electronico (Telecomunicaciones)",
+			"Desde 2015 practicando",
+			"1er Dan JRKV",
 		],
-		image: alexandre
+		image: alexandre,
 	},
 	{
-		Title: "Shidoin Eva Chirinos",
-		Lead: "1er Dan",
-		Record: [
-			"Shidoin (Instructor Asistente)",
-			"Cinturón Negro 1er Dan",
-		],
-		image: eva
-	}
+		Title: "Eva Chirinos",
+		Lead: "1er Dan - Asistente Instructor",
+		Record: ["Médico Cirujano", "Desde 2008 practicando", "1er Dan"],
+		image: eva,
+	},
 ];
 
 const assistants = [
 	{
 		Title: "Carlos Cordova",
-		Lead: "4to Kyu",
-		Record: ["Miembro activo del Dojo"],
-		image: carlos
+		Lead: "Asistente",
+		Record: ["Licdo. Turismo", "Desde 2016 practicando", "Asistente"],
+		image: carlos,
 	},
 	{
 		Title: "Leopoldo Garcia",
-		Lead: "4to Kyu",
-		Record: ["Miembro activo del Dojo"],
-		image: leopoldo
+		Lead: "Asistente",
+		Record: ["Estudiante Ing. Industrial", "Desde 2021 practicando"],
+		image: leopoldo,
 	},
 	{
 		Title: "Juan Morillo",
-		Lead: "4to Kyu",
-		Record: ["Miembro activo del Dojo"],
-		image: juan
-	}
+		Lead: "Asistente",
+		Record: [
+			"Estudiante de Media y Diversificada",
+			"Desde 2022 practicando",
+		],
+		image: juan,
+	},
 ];
 ---
 
 <section class="py-24 bg-white" id="team">
-    <div class="container mx-auto px-4 text-center mb-16">
-        <HeaderTitle>Nuestro Equipo</HeaderTitle>
-        <p class="text-black-beauty-600 max-w-2xl mx-auto mt-4">
-            Contamos con instructores certificados y altamente capacitados dedicados a la enseñanza del Karate-do tradicional.
-        </p>
-    </div>
+	<div class="container mx-auto px-4 text-center mb-16">
+		<HeaderTitle>Nuestro Equipo</HeaderTitle>
+		<p class="text-black-beauty-600 max-w-2xl mx-auto mt-4">
+			Contamos con instructores certificados y altamente capacitados
+			dedicados a la enseñanza del Karate-do tradicional.
+		</p>
+	</div>
 
-    <div class="container mx-auto px-4 flex flex-col gap-24">
-        <!-- Sensei Section -->
-        <div class="flex flex-col items-center">
-            <h3 class="text-3xl font-bebas tracking-widest font-bold mb-12 text-black-beauty-700 relative inline-block">
-                Instructor Principal
-                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-barbados-cherry-500 rounded-full"></div>
-            </h3>
-            <div class="max-w-[350px] w-full">
-                {instructors.map((sensei) => (
-                    <TeamCard {...sensei} />
-                ))}
-            </div>
-        </div>
-        <!-- Shidoins Section -->
-        <div>
-            <h3 class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2">
-                Nuestros Shidoins
-                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-golden-rod-500 rounded-full"></div>
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[700px] mx-auto">
-                {shidoins.map((shidoin) => (
-                    <TeamCard {...shidoin} />
-                ))}
-            </div>
-        </div>
-        <!-- Assistants Section -->
-        <div>
-            <h3 class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2">
-                Asistentes
-                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-gray-300 rounded-full"></div>
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[912px] mx-auto">
-                {assistants.map((assistant) => (
-                    <TeamCard {...assistant} />
-                ))}
-            </div>
-        </div>
-    </div>
+	<div class="container mx-auto px-4 flex flex-col gap-24">
+		<!-- Sensei Section -->
+		<div class="flex flex-col items-center">
+			<h3
+				class="text-3xl font-bebas tracking-widest font-bold mb-12 text-black-beauty-700 relative inline-block"
+			>
+				Instructor Principal
+				<div
+					class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 bg-barbados-cherry-500 rounded-full"
+				>
+				</div>
+			</h3>
+			<div class="max-w-[350px] w-full">
+				{instructors.map((sensei) => <TeamCard {...sensei} />)}
+			</div>
+		</div>
+		<!-- Shidoins Section -->
+		<div>
+			<h3
+				class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2"
+			>
+				Nuestros Shidoins
+				<div
+					class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-golden-rod-500 rounded-full"
+				>
+				</div>
+			</h3>
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-[700px] mx-auto"
+			>
+				{shidoins.map((shidoin) => <TeamCard {...shidoin} />)}
+			</div>
+		</div>
+		<!-- Assistants Section -->
+		<div>
+			<h3
+				class="text-2xl font-bebas tracking-widest font-bold mb-12 text-center text-black-beauty-700 relative inline-block left-1/2 -translate-x-1/2"
+			>
+				Asistentes
+				<div
+					class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-10 h-1 bg-gray-300 rounded-full"
+				>
+				</div>
+			</h3>
+			<div
+				class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-[912px] mx-auto"
+			>
+				{assistants.map((assistant) => <TeamCard {...assistant} />)}
+			</div>
+		</div>
+	</div>
 </section>
-
