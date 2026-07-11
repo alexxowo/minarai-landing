@@ -18,14 +18,14 @@ import HeaderTitle from "./atoms/HeaderTitle.astro";
                 <img
                     src={karate_student.src}
                     alt="Karate Student"
-                    class="absolute bottom-0 left-0 w-auto h-[115%] object-cover object-top z-10"
+                    class="absolute bottom-0 left-0 w-auto h-[109%] max-w-none object-contain object-bottom z-10"
                     style="mask-image: linear-gradient(to bottom, black 0%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"
                 />
             </div>
 
             <!-- Content Section (Right) -->
             <div
-                class="flex-1 flex flex-col justify-center items-end text-right md:pl-8 py-8 md:py-0 relative z-20"
+                class="w-full lg:w-[45%] ml-auto flex flex-col justify-center items-end text-right md:pl-8 py-8 md:py-0 relative z-20"
             >
                 <h2
                     class="font-bebas text-5xl md:text-7xl uppercase text-black leading-none mb-6 relative"
@@ -39,7 +39,7 @@ import HeaderTitle from "./atoms/HeaderTitle.astro";
                 </h2>
 
                 <div
-                    class="max-w-xl text-black font-raleway font-light text-lg md:text-xl leading-relaxed mb-8"
+                    class="max-w-lg lg:max-w-md xl:max-w-lg text-black font-raleway font-light text-lg md:text-xl leading-relaxed mb-8"
                 >
                     <p>
                         Más que un entrenamiento: es tu evolución personal.
