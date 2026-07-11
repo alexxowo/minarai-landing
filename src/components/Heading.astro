@@ -1,27 +1,36 @@
 ---
 import HeaderTitle from "./atoms/HeaderTitle.astro";
-import hero_image from "../assets/images/Victoria_negro_blanco.png"
+import hero_image from "../assets/images/CABECERA (1).png";
 
 const heroImages = [
-    hero_image.src, 
+    hero_image.src,
     // Add more images here for future rotation
 ];
 ---
 
-<section class="relative w-full min-h-[calc(100vh-80px)] bg-white overflow-hidden flex flex-col md:flex-row items-center justify-between px-6 md:px-12 pt-12 md:pt-0">
-    
+<section
+    class="relative w-full min-h-[calc(100vh-80px)] bg-white flex flex-col md:flex-row items-center justify-between px-6 md:px-12 pt-12 md:pt-0"
+>
     <!-- Left Content -->
-    <div class="flex-1 flex flex-col items-center md:items-start justify-center z-20 w-full md:w-auto pl-0 md:pl-20 text-center md:text-left mt-8 md:mt-0">
-        <span class="text-gray-500 font-light uppercase tracking-[0.2em] text-xs md:text-base mb-1 md:mb-[-10px] md:ml-1">
+    <div
+        class="flex-1 flex flex-col items-center md:items-start justify-center z-20 w-full md:w-auto pl-0 md:pl-20 text-center md:text-left mt-8 md:mt-0"
+    >
+        <span
+            class="text-gray-500 font-light uppercase tracking-[0.2em] text-xs md:text-base mb-1 md:mb-[-10px] md:ml-1"
+        >
             Academia de karate-do
         </span>
-        
-        <h1 class="text-black text-5xl md:text-9xl font-bebas tracking-wider font-bold leading-none mb-4 md:mb-2">
+
+        <h1
+            class="text-black text-5xl md:text-9xl font-bebas tracking-wider font-bold leading-none mb-4 md:mb-2"
+        >
             DOJO MINARAI
         </h1>
-        
-        <span class="text-black font-raleway font-light text-lg md:text-3xl italic mb-8 md:mb-12">
-            El aprendizaje <br class="block md:hidden"> mediante la observación
+
+        <span
+            class="text-black font-raleway font-light text-lg md:text-3xl italic mb-8 md:mb-12"
+        >
+            El aprendizaje <br class="block md:hidden" /> mediante la observación
         </span>
 
         <!-- <button class="bg-golden-rod-500 text-black font-bebas tracking-wide text-lg md:text-xl px-8 py-3 rounded-md uppercase hover:bg-golden-rod-600 transition-colors shadow-lg cursor-default">
@@ -30,18 +39,66 @@ const heroImages = [
     </div>
 
     <!-- Right Image Placeholder -->
-    <div class="flex-1 h-full w-full flex items-end justify-center md:justify-end relative mt-8 md:mt-0">
-        <img 
+    <div class="absolute inset-0 w-full h-full z-0">
+        <img
             id="hero-image"
-            src={heroImages[0]} 
-            alt="Karateka Minarai" 
-            class="h-[50vh] md:h-[90%] w-auto object-contain object-bottom transition-opacity duration-1000"
+            src={heroImages[0]}
+            alt="Karateka Minarai"
+            class="w-full h-full object-cover transition-opacity duration-1000"
         />
     </div>
 
-    <!-- Black gradient overlay for the entire section -->
-    <div class="absolute bottom-0 left-0 w-full h-1/3 bg-linear-to-t from-black from-0% to-transparent z-10 pointer-events-none"></div>
+    <!-- Gradient overlay: white on the left (under text), transparent in the middle, dark/black on the right -->
+    <div class="absolute inset-0 z-10 pointer-events-none gradient-overlay">
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <a
+        href="#about"
+        class="absolute bottom-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-gray-100 flex items-center justify-center text-black hover:text-amber-600 hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+        aria-label="Ir a sección Sobre Nosotros"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            class="w-6 h-6 transition-transform duration-300 group-hover:translate-y-0.5"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+        </svg>
+    </a>
 </section>
+
+<style>
+    .gradient-overlay {
+        background: linear-gradient(
+            to bottom,
+            #ffffffab 0%,
+            #ffffffab 50%,
+            rgba(255, 255, 255, 0) 70%,
+            rgba(0, 0, 0, 0) 90%,
+            #000000 100%
+        );
+    }
+    @media (min-width: 768px) {
+        .gradient-overlay {
+            background: linear-gradient(
+                to right,
+                #ffffffab 0%,
+                #ffffffab 45%,
+                rgba(255, 255, 255, 0) 65%,
+                rgba(0, 0, 0, 0) 85%,
+                #000000 100%
+            );
+        }
+    }
+</style>
 
 <script define:vars={{ heroImages }}>
     // Image rotation logic placeholder

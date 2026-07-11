@@ -2,48 +2,62 @@
 import HeaderTitle from "./atoms/HeaderTitle.astro";
 import ScheduleCard from "./cards/ScheduleCard.astro";
 
+// Imagenes
+import ninos from "../assets/images/clases/infantil.jpg";
+import prejuvenil from "../assets/images/clases/prejuvenil.jpg";
+import juvenil from "../assets/images/clases/juvenil_adulto.jpg";
+import avanzado from "../assets/images/clases/avanzados.jpg";
+import personalizada from "../assets/images/clases/clase_personalizada.jpg";
+import adaptativo from "../assets/images/clases/desarrollo_adaptativo.jpg";
+
 const schedules = [
   {
     title: "Grupo Infantil",
     subtitle: "Menores de 8 años",
     level: "Principiantes e intermedios",
-    description: "Los más pequeños dan sus primeros pasos en el Karate-Do con atención, respeto y alegría.",
-    image: "https://placehold.co/400x300",
+    description:
+      "Los más pequeños dan sus primeros pasos en el Karate-Do con atención, respeto y alegría.",
+    image: ninos.src,
   },
   {
     title: "Grupo Pre - Juvenil",
     subtitle: "De 9 años a 13 años",
     level: "Principiantes e intermedios",
-    description: "En nuestro grupo Pre-Juvenil, canalizamos el potencial de los jóvenes a través de la técnica y el respeto.",
-    image: "https://placehold.co/400x300",
+    description:
+      "En nuestro grupo Pre-Juvenil, canalizamos el potencial de los jóvenes a través de la técnica y el respeto.",
+    image: prejuvenil.src,
   },
   {
     title: "Grupo Juvenil / Adulto",
     subtitle: "De 14 años en adelante",
     level: "Principiantes e intermedios",
-    description: "Entrenamos para alcanzar la máxima eficiencia física y una mentalidad capaz de dominar cualquier situación bajo presión.",
-    image: "https://placehold.co/400x300",
+    description:
+      "Entrenamos para alcanzar la máxima eficiencia física y una mentalidad capaz de dominar cualquier situación bajo presión.",
+    image: juvenil.src,
   },
   {
     title: "Grupo Avanzado",
     subtitle: "Todas las edades",
     level: "Avanzados",
-    description: "El entrenamiento trasciende lo físico. Aquí, cada detalle cuenta y cada movimiento se pule hasta la perfección.",
-    image: "https://placehold.co/400x300",
+    description:
+      "El entrenamiento trasciende lo físico. Aquí, cada detalle cuenta y cada movimiento se pule hasta la perfección.",
+    image: avanzado.src,
   },
   {
     title: "Clase Personalizada",
     subtitle: "Todas las edades",
     level: "Principiantes, Intermedios y Avanzados",
-    description: "Maximiza tu aprendizaje con la atención total; optimizando cada movimiento y acelerando tus resultados en defensa personal y acondicionamiento.",
-    image: "https://placehold.co/400x300",
+    description:
+      "Maximiza tu aprendizaje con la atención total; optimizando cada movimiento y acelerando tus resultados en defensa personal y acondicionamiento.",
+    image: personalizada.src,
   },
   {
     title: "Clase de Desarrollo Adaptativo",
     subtitle: "Todas las edades",
     level: "Principiantes, Intermedios y Avanzados",
-    description: "Nuestras clases para personas con neurodivergencia están diseñadas para adaptar la disciplina a las necesidades individuales de cada alumno.",
-    image: "https://placehold.co/400x300",
+    description:
+      "Nuestras clases para personas con neurodivergencia están diseñadas para adaptar la disciplina a las necesidades individuales de cada alumno.",
+    image: adaptativo.src,
   },
 ];
 ---
@@ -51,7 +65,7 @@ const schedules = [
 <section id="schedules" class="max-w-7xl mx-auto px-12 py-20 bg-white">
   <div class="mb-16">
     <HeaderTitle>
-      NUESTROS <br> HORARIOS
+      NUESTROS <br /> HORARIOS
     </HeaderTitle>
   </div>
 
