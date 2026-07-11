@@ -133,8 +133,8 @@ const { title, description, animationDuration = 500 } = Astro.props;
   // Initialize accordions
   const initAccordions = () => {
     document.querySelectorAll('details').forEach((el) => {
-      // Avoid re-attaching if already attached (simple check)
-      if (!(el as any)._accordionAttached) {
+      // Avoid re-attaching if already attached, and only target elements with .faq-content
+      if (el.querySelector('.faq-content') && !(el as any)._accordionAttached) {
         new Accordion(el as HTMLDetailsElement);
         (el as any)._accordionAttached = true;
       }
