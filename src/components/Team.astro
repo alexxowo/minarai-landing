@@ -76,8 +76,13 @@ const assistants = [
 ];
 ---
 
-<section class="py-24 bg-white" id="team">
-	<div class="container mx-auto px-4 text-center mb-16">
+<section class="py-24 bg-white relative" id="team">
+	<!-- Decorative background element (Light mode) -->
+	<div class="absolute inset-0 opacity-[0.05] pointer-events-none z-0" 
+		 style="background-image: radial-gradient(circle at center, #000 1px, transparent 1px); background-size: 20px 20px;">
+	</div>
+
+	<div class="container mx-auto px-4 text-center mb-16 relative z-10">
 		<HeaderTitle>Nuestro Equipo</HeaderTitle>
 		<p class="text-black-beauty-600 max-w-2xl mx-auto mt-4">
 			Contamos con instructores certificados y altamente capacitados
@@ -85,7 +90,7 @@ const assistants = [
 		</p>
 	</div>
 
-	<div class="container mx-auto px-4 flex flex-col gap-24">
+	<div class="container mx-auto px-4 flex flex-col gap-24 relative z-10">
 		<!-- Sensei Section -->
 		<div class="flex flex-col items-center">
 			<h3
