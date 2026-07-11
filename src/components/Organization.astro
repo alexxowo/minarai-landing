@@ -3,14 +3,24 @@ import jkr_logo from "../assets/images/JKRV.svg"
 import soke_yasuhiro_konishi from "../assets/images/Yasuhiro.png"
 ---
 
-<section class="h-screen max-w-7xl mx-auto px-12 py-20 flex flex-col md:flex-row items-center gap-12 bg-white">
+<section class="h-screen max-w-7xl mx-auto px-4 md:px-12 py-20 flex flex-col md:flex-row items-center gap-12 bg-white">
     <!-- Left Image -->
-    <div class="flex-1">
+    <div class="flex-1 relative w-full">
         <img 
             src={soke_yasuhiro_konishi.src} 
             alt="Soke Yasuhiro Konishi" 
-            class="w-full h-auto object-cover rounded-lg shadow-lg grayscale"
+            class="w-full h-auto object-cover rounded-lg shadow-lg grayscale relative z-10"
         />
+        
+        <!-- Vertical Kanjis with Parallax -->
+        <div class="absolute top-0 -left-2 md:-left-12 lg:-left-20 h-full flex items-center justify-center z-0 pointer-events-none parallax-container">
+            <span 
+                class="kanji-parallax text-gray-100 font-black text-4xl md:text-6xl lg:text-8xl tracking-widest whitespace-nowrap select-none" 
+                style="writing-mode: vertical-rl; text-orientation: upright;"
+            >
+                日本空手道良武会
+            </span>
+        </div>
     </div>
 
     <!-- Right Content -->
@@ -34,3 +44,29 @@ import soke_yasuhiro_konishi from "../assets/images/Yasuhiro.png"
         </div>
     </div>
 </section>
+
+<script>
+    const parallaxContainers = document.querySelectorAll('.parallax-container');
+    
+    const onScroll = () => {
+        parallaxContainers.forEach(container => {
+            const el = container.querySelector('.kanji-parallax') as HTMLElement;
+            if (!el) return;
+            
+            const rect = container.getBoundingClientRect();
+            const centerY = window.innerHeight / 2;
+            const elementCenterY = rect.top + rect.height / 2;
+            
+            // Distance from the center of the viewport
+            const diff = elementCenterY - centerY;
+            
+            // Parallax speed factor
+            const speed = 0.15;
+            el.style.transform = `translateY(${-diff * speed}px)`;
+        });
+    };
+    
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // Initial call
+    onScroll();
+</script>
